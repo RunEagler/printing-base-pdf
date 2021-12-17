@@ -1,20 +1,25 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Setting } from '@/models/Setting';
 
-export interface DocumentState {
+export interface SettingState {
   settings: Setting[];
+  titles: string[];
 }
 
-const initialState: DocumentState = {
+const initialState: SettingState = {
   settings: [],
+  titles: [],
 };
 
-export const documentPersistModule = createSlice({
-  name: 'root',
+export const settingPersistModule = createSlice({
+  name: 'settingPersistModule',
   initialState,
   reducers: {
-    setSettings: (state: DocumentState, action: PayloadAction<Setting[]>) => {
-      state.settings = action.payload
+    setSettings: (state: SettingState, action: PayloadAction<Setting[]>) => {
+      state.settings = action.payload;
+    },
+    setTitles: (state: SettingState, action: PayloadAction<string[]>) => {
+      state.titles = action.payload;
     },
   },
   extraReducers: {},

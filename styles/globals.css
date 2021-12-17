@@ -1,16 +1,62 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+.sheet {
+  /*width: 210mm;*/
+  /*height: 291mm;*/
+
+  /*width: 190mm;*/
+  width: 100%;
+  max-width: 190mm;
+  height: 250mm;
+  max-height: 250mm;
+  page-break-after: always;
+}
+
+.print-sheet {
+  page-break-after: always;
+  width: 210mm;
+  height: 291mm;
+  background: white; /* 背景を白く */
+  /*box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3); !* ドロップシャドウ *!*/
+  margin: 20px auto 20px auto;
+}
+
+.skeleton-bar {
+  height: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  background: #d1d5db;
+}
+
+.preview-skeleton-bar {
+  height: 15px;
+  width: 100%;
+  margin-bottom: 15px;
+  background: #d1d5db;
+}
+
 body {
-  padding: 0;
+  background: gray !important;
+  -webkit-print-color-adjust: exact;
+}
+
+@page {
+  size: A4;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+/* プレビュー用のスタイル */
+@media screen {
+  body {
+    background: #eee;
+  }
+  .sheet {
+    background: white; /* 背景を白く */
+    box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3); /* ドロップシャドウ */
+    margin: 5mm;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
